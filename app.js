@@ -24,8 +24,28 @@ var port = process.env.PORT || 8000;
 
 app.listen(port , function(){
 	console.log('Server listening');
-  connDb();
+  //connDb();
 });
+
+var rArray = [];
+rArray[0] = "first review"
+
+app.get('/test/:review', addInfo);
+
+function addInfo(request , response){
+  console.log('addInfo1')
+
+  var data = request.params;
+  var review = data.review;
+  var x = rArray.length +1;
+  rArray[x] = review;
+  console.log("Array: " + rArray +"length" + rArray.length);
+  response.sendFile(__dirname + '/public/default.html');
+  response.send(rArray);
+}
+
+
+
 //Alustetaan databaseyhteys
 /*var connection = mysql.createConnection({
   connectionLimit : 100,
@@ -422,4 +442,3 @@ function openSite(request , response){
       beaconStatus.beacon3.ryhma = ryhma;
     }
   }*/
-}
