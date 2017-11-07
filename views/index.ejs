@@ -1,0 +1,155 @@
+<!doctype html>
+<link rel='stylesheet' type='text/css' href='css/style.php'/>
+
+<html>
+
+  <head>
+    <title>Buddy</title>
+
+    <script>
+    function timedRefresh(timeoutPeriod) {
+    setTimeout("location.reload(true);",timeoutPeriod);
+    }
+
+    window.onload = timedRefresh(7500);
+    </script>
+
+<style>
+  @import url(https://fonts.googleapis.com/css?family=Oswald);
+	h1 {text-align:center; margin-top: 10px; font-family: 'Oswald';}
+	p {text-align:center; margin-top: 10%; font-family: 'Oswald';}
+
+* {
+	  margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: transparent;
+    overflow-x: hidden; 
+	  overflow-y: hidden;
+}
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+}
+.container1 {
+  position: absolute;
+  height: 100%;
+  width: 50vw;
+  z-index: -1;
+}
+.container2 {
+  position: fixed;
+  top:0;
+  right:0;
+  height: 100%;
+  width: 50vw;
+  z-index: -1;
+}
+.container3 {
+  position: fixed;
+  bottom:0;
+  right:0;
+  height: 50%;
+  width: 50vw;
+  z-index: -1;
+}
+.container1 {
+  background: transparent;
+  right: 50%;
+}
+.container2 {
+  background: transparent;
+  left: 50%;
+  border-style: solid;
+  border-color: #e28a26; /* #ff8200 is the original */
+  border-width: 1vw;
+}
+.container3 {
+  background: transparent;
+  left: 50%;
+  border-style: solid;
+  border-color: #e28a26; /* #ff8200 is the original */
+  border-width: 1vw;
+}
+</style>
+
+  <script type="text/javascript">
+	var paikkakunta =  <%- JSON.stringify(saa) %>;
+	var ryhma = <%- JSON.stringify(ryhma) %>;
+	var viesti = <%- JSON.stringify(viesti) %>;
+	var viesti2 = viesti.replace("-"," ");
+	var lampotila = <%- JSON.stringify(keli) %>;
+  var ruoka = <%- JSON.stringify(ruoka) %>;
+	console.log(paikkakunta + " " + lampotila + " " + ryhma + " " + viesti + " " + ruoka + " " + id);
+	</script>
+
+  </head>
+
+<div class="multi_bg_example">
+
+<style>
+  .multi_bg_example {
+  height: 96.5vh;
+
+  border-style: solid;
+  border-color: #e28a26; /* #ff8200 is the original */
+  border-width: 1vw;
+  }
+
+</style>
+
+<body>
+
+<div class="container1">
+  <p></p> <!-- Tämä rivi luo marginaalin ylös teksteille. Marginaalin kokoa voi vaihtaa ylhäältä esim:   p {text-align:center; margin-top: 20%;} --> 
+  <h1>
+    Ryhmän 
+    <script type="text/javascript">
+          document.write(ryhma)
+        </script>
+     viesti: <br>
+     <script type="text/javascript">
+          document.write(viesti2)
+        </script>
+  </h1>
+
+</div>
+
+<div class="container2">
+  <p></p> <!-- Tämä rivi luo marginaalin ylös teksteille. Marginaalin kokoa voi vaihtaa ylhäältä esim:   p {text-align:center; margin-top: 20%;} --> 
+  <h1>
+    Paikkakunnan
+    <script type="text/javascript">
+          document.write(paikkakunta)
+        </script>
+         sää: <br>
+         <script type="text/javascript">
+          document.write(lampotila + "°C").fontsize(6)
+        </script>
+
+        <img id="kuvaid" src="http://openweathermap.org/img/w/03d.png" height=150px>
+          <script type="text/javascript">
+          var saaId2 = "02d"; //<%- JSON.stringify(saaId) %>;
+          document.getElementById("kuvaid").src="http://openweathermap.org/img/w/"+saaId2+".png";
+          </script>
+  </h1>
+</div>
+
+<div class="container3">
+  <p></p> <!-- Tämä rivi luo marginaalin ylös teksteille. Marginaalin kokoa voi vaihtaa ylhäältä esim:   p {text-align:center; margin-top: 20%;} --> 
+  <h1>Ruokana tänään: <br>
+    <script type="text/javascript">
+          document.write(ruoka)
+        </script>
+  </h1>
+</div>
+
+</body>
+
+</div>
+
+</html>
