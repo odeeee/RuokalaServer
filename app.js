@@ -29,6 +29,12 @@ app.listen(port , function(){
 
 var rArray = [];
 rArray[0] = "first review"
+rArray[1] = "second review"
+rArray[2] = "third review"
+rArray[3] = "fourth review"
+rArray[4] = "fifth review"
+rArray[5] = "sixth review"
+
 
 app.get('/test/:review', addInfo);
 
@@ -40,9 +46,27 @@ function addInfo(request , response){
   var x = rArray.length +1;
   rArray[x] = review;
   console.log("Array: " + rArray +"length" + rArray.length);
-  response.sendFile(__dirname + '/public/default.html');
+  //response.sendFile(__dirname + '/public/default.html');
   response.send(rArray);
+
 }
+
+app.get('/palaute', vastaa);
+ function vastaa(){
+
+  response.send(rArray);
+
+    /*response.render("index", { 
+     palaute1: rArray[rArray.length],
+     palaute2: rArray[rArray.length - 1],
+     palaute3: rArray[rArray.length - 2],
+     palaute4: rArray[rArray.length - 3],
+     palaute5: rArray[rArray.length - 4]
+    });*/
+    console.log("Vastattu");
+  }
+
+
 
 
 
