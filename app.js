@@ -36,7 +36,7 @@ rArray[4] = "fifth review"
 rArray[5] = "sixth review"
 
 
-app.get('/test/:review', addInfo);
+app.get('/laheta/:review', addInfo);
 
 function addInfo(request , response){
   console.log('addInfo1')
@@ -46,14 +46,14 @@ function addInfo(request , response){
   var x = rArray.length +1;
   rArray[x] = review;
   console.log("Array: " + rArray +"length" + rArray.length);
-  //response.sendFile(__dirname + '/public/default.html');
+  ///response.sendFile(__dirname + '/public/default.html');
   response.send(rArray);
 
 }
 
 app.get('/palaute', vastaa);
- function vastaa(){
 
+function vastaa(request , response){
   response.send(rArray);
 
     /*response.render("index", { 
@@ -63,8 +63,8 @@ app.get('/palaute', vastaa);
      palaute4: rArray[rArray.length - 3],
      palaute5: rArray[rArray.length - 4]
     });*/
-    console.log("Vastattu");
-  }
+  console.log("Vastattu");
+}
 
 
 
