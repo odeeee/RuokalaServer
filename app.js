@@ -54,7 +54,7 @@ function addInfo(request , response){
 app.get('/palaute', vastaa);
 
 function vastaa(request , response){
-  response.send(rArray);
+  response.send(rArray[rArray.length -1]+" | "+rArray[rArray.length - 2]+" | "+rArray[rArray.length - 3]+" | "+rArray[rArray.length - 4]+" | "+rArray[rArray.length - 5]);
 
     /*response.render("index", { 
      palaute1: rArray[rArray.length],
