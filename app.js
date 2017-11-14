@@ -43,9 +43,9 @@ function addInfo(request , response){
 
   var data = request.params;
   var review = data.review;
-  var x = rArray.length +1;
+  var x = rArray.length ;
   rArray[x] = review;
-  console.log("Array: " + rArray +"length" + rArray.length);
+  console.log(review +" Array: " + rArray +"length" + rArray.length);
   ///response.sendFile(__dirname + '/public/default.html');
   response.send(rArray);
 
